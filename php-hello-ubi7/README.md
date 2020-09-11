@@ -23,7 +23,7 @@ podman build -f Dockerfile.ubi7 -t php-hello-ubi7 .
 ## Excute the container
 
 ```/bin/bash
-podman run -dt -p 8080:8080 php-hello-ubi7
+podman run --name=php-hello-ubi7 -dt -p 8080:8080 php-hello-ubi7
 ```
 
 ## Retrieve the default index file
@@ -43,6 +43,12 @@ curl http://localhost:8080/ignorethese-01.html
 curl http://localhost:8080/ignorethese-02.html
 curl http://localhost:8080/ignorethese-03.html
 curl http://localhost:8080/ignorethese-04.html
+```
+
+## Examine the file system
+
+```/bin/bash
+podman exec php-hello-ubi7 ls /opt/rh/httpd24/root/var/www/html
 ```
 
 ## Stop and Remove the container
