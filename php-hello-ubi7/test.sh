@@ -4,8 +4,8 @@ FILEDIR=/opt/rh/httpd24/root/var/www/html
 MYNAME=php-hello-ubi7
 MYDOCKERFILE=Dockerfile.ubi7
 MYDIVIDER='================'
-#BUILDERCMD='buildah bud'
-BUILDERCMD="podman build"
+BUILDERCMD='buildah bud'
+#BUILDERCMD="podman build"
 
 echo -e "$MYDIVIDER\nS T A R T\n$MYDIVIDER\n\n"
 
@@ -23,3 +23,5 @@ podman stop $MYNAME ; podman rm $MYNAME
 
 echo -e "$MYDIVIDER\n\nEND-OF-JOB\n" 
 
+
+# Could do a "podman run --name=$NAME -it --rm -p 8080:8080 $MYNAME
