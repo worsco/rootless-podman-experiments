@@ -9,6 +9,15 @@ BUILDERCMD="podman build"
 
 echo -ne "$MYDIVIDER\nS T A R T\n$MYDIVIDER\n"
 
+echo -ne "OS RELEASE\n"
+cat /etc/redhat-release
+echo -ne "$MYDIVIDER\n"
+
+echo -ne "PODMAN VERSION\n"
+podman version
+echo -ne "$MYDIVIDER\n"
+
+# Stop any containers that are running (they may not be running)
 podman stop $MYNAME ; podman rm $MYNAME
 
 $BUILDERCMD -f $MYDOCKERFILE -t $MYNAME . && \
