@@ -4,8 +4,8 @@ FILEDIR=/opt/rh/httpd24/root/var/www/html
 MYNAME=php-hello-ubi7
 MYDOCKERFILE=Dockerfile.ubi7
 MYDIVIDER='================'
-BUILDERCMD='buildah bud'
-#BUILDERCMD="podman build"
+#BUILDERCMD='buildah bud'
+BUILDERCMD="podman build"
 
 echo -ne "$MYDIVIDER\nS T A R T\n$MYDIVIDER\n"
 
