@@ -1,0 +1,48 @@
+[worsco@rhel8-server-01-zcsi php-hello-ubi7]$ ./test.sh 
+================
+S T A R T
+================
+OS RELEASE
+Red Hat Enterprise Linux release 8.2 (Ootpa)
+================
+PODMAN VERSION
+Version:            1.9.3
+RemoteAPI Version:  1
+Go Version:         go1.13.4
+OS/Arch:            linux/amd64
+================
+Error: no container with name or ID php-hello-ubi7 found: no such container
+Error: no container with name or ID php-hello-ubi7 found: no such container
+STEP 1: FROM registry.access.redhat.com/ubi7/ubi:7.8
+STEP 2: RUN   yum -y install --disableplugin=subscription-manager httpd24 rh-php72 rh-php72-php &&   yum --disableplugin=subscription-manager clean all
+--> Using cache 7bb47433d2c90c66adab006a5146ba856eb51e9db2e15ad739d8cb40e9472aad
+STEP 3: COPY files/* /opt/rh/httpd24/root/var/www/html
+--> Using cache d17257b55e87d720031bbd5fb51ca7a2106dbdd6bd5deccc2a68409228b35447
+STEP 4: RUN   sed -i 's/Listen 80/Listen 8080/' /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf &&   chgrp -R 0 /var/log/httpd24 /opt/rh/httpd24/root/var/run/httpd &&   chmod -R g=u /var/log/httpd24 /opt/rh/httpd24/root/var/run/httpd
+--> Using cache 5f4b7c3c2ca498bfd739a1f7eabe8f9fb0ee5da25e4a7292bdc0649e76b7f019
+STEP 5: EXPOSE 8080
+--> Using cache 8b92ecdaae82bddb00995b9e549fc8b840cf6d1f109bccf7cc4d697a3de53842
+STEP 6: USER 1001
+--> Using cache 8e50a19a6250c39957e064961a22dea52a0ba3219ceec77727e9a00a5b6a1802
+STEP 7: CMD scl enable httpd24 rh-php72 -- httpd -D FOREGROUND
+--> Using cache 7d8c0cd9c420352c5f6c650014f8506fb9da47a795b9e5febaead44718c38d86
+STEP 8: COMMIT php-hello-ubi7
+--> 7d8c0cd9c42
+7d8c0cd9c420352c5f6c650014f8506fb9da47a795b9e5febaead44718c38d86
+98e08d91c952c80bed8bb908544319d1c22a2c54c89eb50dac11de8db3439f90
+Listing files in /opt/rh/httpd24/root/var/www/html
+================
+index.php
+================
+
+Contents of local .dockerignore
+================
+**/ignorethese*
+
+STOPPING AND REMOVING php-hello-ubi7
+98e08d91c952c80bed8bb908544319d1c22a2c54c89eb50dac11de8db3439f90
+98e08d91c952c80bed8bb908544319d1c22a2c54c89eb50dac11de8db3439f90
+================
+
+END-OF-JOB
+
