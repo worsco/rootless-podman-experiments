@@ -1,0 +1,58 @@
+================
+S T A R T
+================
+OS RELEASE
+Red Hat Enterprise Linux release 8.2 (Ootpa)
+================
+PODMAN VERSION
+Version:            1.9.3
+RemoteAPI Version:  1
+Go Version:         go1.13.4
+OS/Arch:            linux/amd64
+================
+STEP 1: FROM registry.access.redhat.com/rhscl/python-36-rhel7:1-66
+STEP 2: USER 0
+--> Using cache a702e848e29aee165357602428928d0f8520c3d7d9463cafce666674b302381b
+STEP 3: RUN pip3 install flask
+--> Using cache e0182a75737e39feffee5318658b62595cd8d0ed622e6776591b22d9f6e55081
+STEP 4: WORKDIR /app
+--> Using cache 7b8c2257e9e56ca9772e19ec6e5c56ea18a14ff688af5f3885cfe07750cde48d
+STEP 5: COPY . /app
+--> 2d79590d274
+STEP 6: USER 1001
+--> e317ed913cf
+STEP 7: EXPOSE 8080
+--> f0933c4b38e
+STEP 8: CMD ["python", "app.py"]
+STEP 9: COMMIT python-36-rhel7
+--> f0a6e0616ee
+f0a6e0616ee8176cdba656d6fa4869db519bb2e354f6b11bb45619c5ff126576
+2eeb402a423dde58cfc35dfa25c5842b9988349a4e538218d9428db920455c71
+Listing files in ./
+================
+app.py
+create-files.sh
+index.html
+test-experiment-output.txt
+test.sh
+================
+
+Contents of local .dockerignore
+================
+Dockerfile
+.dockerignore
+Jenkinsfile-UC3-3
+Jenkinsfile-UC3-2
+Dockerfile-UC3-3
+Dockerfile-UC3-2
+Jenkinsfile-rebar
+Jenkinsfile-core
+Jenkinsfile-aws-nexus
+Dockerfile-prod
+
+STOPPING AND REMOVING python-36-rhel7
+2eeb402a423dde58cfc35dfa25c5842b9988349a4e538218d9428db920455c71
+2eeb402a423dde58cfc35dfa25c5842b9988349a4e538218d9428db920455c71
+================
+
+END-OF-JOB
