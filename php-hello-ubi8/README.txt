@@ -1,4 +1,7 @@
 
+[worsco@rhel8-server-01-zcsi php-hello-ubi8]$ sudo firewall-cmd --add-port=8080/tcp
+[worsco@rhel8-server-01-zcsi php-hello-ubi8]$ sudo firewall-cmd --permanent --add-port=8080/tcp
+
 [worsco@rhel8-server-01-zcsi php-hello-ubi8]$ podman unshare cat /proc/self/uid_map
          0       1000          1
          1     100000      65536
